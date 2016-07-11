@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" 
+      content="TODO.">
+    <title>RESTalk Patterns - {{title}}</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <div class="container">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li {{#index}}class="active"{{/index}}><a href="index.html">RESTalk Pattern Language</a></li>
+              <li {{#rest}}class="active"{{/rest}}><a href="rest.html">REST</a></li>
+              <li {{#dsl}}class="active"{{/dsl}}><a href="dsl.html">RESTalk DSL</a></li>
+              <li {{#contribute}}class="active"{{/contribute}}><a href="contribute.html">Contribution</a></li>
+              <li {{#imprint}}class="active"{{/imprint}}><a href="imprint.html">Imprint &amp; Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content">
+      <section class="main container">
+        {{{pageContent}}}
+      </section>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
