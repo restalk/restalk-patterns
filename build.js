@@ -23,9 +23,8 @@ var jsDistDir = distDir + '/js';
 var htmlDir = 'html';
 var layoutTpl = htmlDir + '/layout.mustache';
 var htmlTargetDir = distDir;
-var views = ['index', 'rest', 'dsl', 'contribute', 'imprint', '404', 'post-put'];
 
-var titles = 
+var namesAndTitles = 
 {
   index: 'A Pattern Collection for RESTful Conversations',
   rest: 'REST',
@@ -33,6 +32,7 @@ var titles =
   contribute: 'Contribute',
   imprint: 'Imprint & Contact',
   'post-put': 'Pattern: POST-PUT Creation',
+  'long-running-operation-polling': 'Pattern: Long Running Operation with Polling',
   '404': 'A Pattern Collection for RESTful Conversations'
 }
 
@@ -91,7 +91,7 @@ var compileTemplate = function(layoutTpl, viewName) {
       var content = Mustache.render(data, {});
       var viewData = {
         pageContent: content,
-        title: titles[viewName]
+        title: namesAndTitles[viewName]
       };
       viewData[viewName] = true;
       var outFile = htmlTargetDir + '/' + viewName + '.html';
@@ -114,8 +114,7 @@ var buildHtml = function() {
         console.log('Could not read:', layoutTpl);
         console.log('Error:', error);
       } else {
-        for (var i in views) {
-          var viewName = views[i];
+        for (var viewName in namesAndTitles) {
           compileTemplate(data, viewName);
         }
       }

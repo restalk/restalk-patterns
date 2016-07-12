@@ -30,6 +30,13 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li {{#index}}class="active"{{/index}}><a href="index.html">RESTalk Pattern Language</a></li>
+              <li class="dropdown">
+                <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patterns <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="post-put.html">POST-PUT Creations</a></li>
+                  <li><a href="long-running-operation-polling.html">Long Running Operation with Polling</a></li>
+                </ul>
+              </li>
               <li {{#rest}}class="active"{{/rest}}><a href="rest.html">REST</a></li>
               <li {{#dsl}}class="active"{{/dsl}}><a href="dsl.html">RESTalk DSL</a></li>
               <li {{#contribute}}class="active"{{/contribute}}><a href="contribute.html">Contribute</a></li>

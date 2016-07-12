@@ -3,21 +3,60 @@
 
 <h2>RESTalk Pattern Language</h2>
 <p>
-Resources exposed as part of RESTful APIs are discovered by clients that interact with them over conversations, composed of sets of basic HTTP interactions, to achieve different goals, such as for example: the (reliable) creation of additional resources, the discovery of related resources, the enumeration of the items found within a collection. Given the goal of each conversation, the designer of the API chooses the corresponding conversation patterns which form the basis for the API design. These patterns will thus help the client developer to understand API's features and to build upon them clients that will perform the complex conversation to achieve their goals.
-</p>
-<p>
-TODO
+    Resources exposed as part of RESTful APIs are discovered by clients that interact with them over conversations, composed of sets of basic HTTP interactions, to achieve different goals, such as for example: the (reliable) creation of additional resources, the discovery of related resources, the enumeration of the items found within a collection. Given the goal of each conversation, the designer of the API chooses the corresponding conversation patterns which form the basis for the API design. These patterns will thus help the client developer to understand API's features and to build upon them clients that will perform the complex conversation to achieve their goals.
 </p>
 
-<h3>What are patterns?</h3>
-<p>TODO</p>
+<h2>What are patterns?</h2>
+<p>
+    You can find an explanation what patterns are and how they are described on the <a href="http://europlop.net/content/introduction">web page of the EuroPlop conference</a>.
+</p>
 
 <h2>Patterns</h2>
+<p>
+    An overview over the patterns of this language and their relationships is provided in the following figure.
+</p> 
+<p class="text-center">
+    <a href="img/language_overview.svg">
+        <img src="img/language_overview.svg" title="Pattern Language Overview" alternate="A figure with all patterns of this language and their categorization as well as their relationships."/>
+    </a>
+</p>
+<p>
+    While HTTP offers the POST and PUT methods for creating resources in a single request-response round, the <strong>Resource Creation Patterns</strong> deal with resource creation under certain constraints or failure scenarios.
+</p>
 <ul>
-<li><a href="post-put.html">POST-PUT Creation</a></li>
-<li>...</li>
+    <li>Create Resource using Collections</li>
+    <li>POST Once Exactly</li>
+    <li><a href="post-put.html">POST-PUT Creation</a></li>
+    <li><a href="long-running-operation-polling.html">Long Running Operation with Polling</a></li>
 </ul>
+<p>
+    The <a href="rest.html">HATEOAS (<em>Hypermedia as the engine of application state</em>) constraint</a>, promotes the design of APIs featuring a single entry point URI, and the dynamic resource discovery based on hypermedia. However, the entry point URI might not lead directly to the resource needed by the client, due to access rights, or the resource being moved to a different location, or the resource being part of a collection of resources. Therefore, the <strong>Resource Discovery Patterns</strong> help to discover resources in such situations. 
+</p>
+<ul>
+    <li>Server-side Redirection with Status Codes</li>
+    <li>Client-side Navigation following Hyperlinks</li>
+    <li>Incremental Resource Collection Traversal</li>
+</ul>
+<p>
+    The read-only Web is long gone and editing resources has become a common operation which can be performed using the <strong>Resource Editing Patterns</strong>.  
+</p>
+<ul>
+    <li>(Partial) Resource Editing</li>
+    <li>Conditional Update for Large Resources</li>
+</ul>
+<p>
+    Depending on the resource's content, some or all of the CRUD (Create, Read, Update, Delete) operations might be available only to a restricted group of clients. Client's access rights can be controlled using the <strong>Resource Protection Patterns</strong>.
+</p>
+<ul>
+    <li>Basic Resource Authentication</li>
+    <li>Cookies-based Authentication</li>
+</ul>
+
+<p>
+    The missing patterns will be published soon.
+</p>
+
 <h2>License</h2>
 <p>
-We plan to publish this content under a non-commercial Creative Commons license. But until the clarification of some legal issues, the copyright stays with the authors.
+    We plan to publish this content under a non-commercial Creative Commons license. But until the clarification of some legal issues, the copyright stays with the authors.
 </p>

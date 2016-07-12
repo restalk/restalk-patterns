@@ -1,7 +1,7 @@
 <h1>POST-PUT Creation</h1>
 
 
-<div class="well">
+<div class="pattern-summary">
     <dl>
         <dt>
             Summary:
@@ -38,7 +38,9 @@
             To use the <em>POST-PUT Creation</em> conversation pattern, it should be possible to distinguish between the technical creation, i.e. the creation of a new URI, and the execution of the application domain specific creation behavior. The resource creation is split into two steps, the technical creation of its identifier and the actions that are required by the application domain. So the client sends first an empty <code>PUT</code> request, which results in the creation of an empty resource resulting in no side-effect relevant for the application domain. Server's response contains a link to the URI of the created empty resource to which the client can add domain-specific content using a <code>PUT</code> request. The first <code>PUT</code> request will then trigger the consequences of the creation in the domain. Since the <code>PUT</code> is idempotent, resending it multiple times will not have side effects. A visualization of the solution is provided in the following figure:
         </p>
         <p class="text-center">
-            <img src="img/post-put.svg" title="POST-PUT Creation sequence flow" alternate="The RESTalk diagram for the POST-PUT Creation pattern"/> 
+            <a href="img/post-put.svg">
+                <img class="img-tiny" src="img/post-put.svg" title="POST-PUT Creation sequence flow" alternate="The RESTalk diagram for the POST-PUT Creation pattern"/> 
+            </a>
         </p>
     </dd>
     <dt>
@@ -78,5 +80,23 @@
            This pattern can also be applied when a POST request is not used for creation but for performing any non-idempotent operation.
         </p>
     </dd>
+    <dt>
+        Known uses:
+    </dt>
+    <dd>
+        <p>
+            For example, the <a href="http://bitworking.org/news/201/RESTify-DayTrader#orders-should-be-reliable">DayTrader REST API</a>.
+        </p>
+    </dd>
+    <dt>
+        Related patterns:
+    </dt>
+    <dd>
+        <p>
+            If the creation takes a long time the <a href="long-running-operation-polling.html"><em>Long Running Operation with Polling</em> pattern</a> may help.
+        </p>
+    </dd>
+
+    
 </dl>
 
