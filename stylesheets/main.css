@@ -5753,8 +5753,8 @@ button.list-group-item-danger.active:focus {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: rgba(70, 102, 107, 0.23);
-  border: 1px solid rgba(70, 102, 107, 0.23);
+  background-color: rgba(70, 102, 107, 0.14);
+  border: 1px solid rgba(70, 102, 107, 0.14);
   border-radius: 0px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -6719,5 +6719,37 @@ h2 {
 @media (min-width: 992px) {
   .img-medium {
     max-width: 70%;
+  }
+  .img-small {
+    max-width: 50%;
+  }
+  .img-tiny {
+    max-width: 25%;
+  }
+}
+.pattern-summary {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: rgba(70, 102, 107, 0.14);
+  border: 1px solid rgba(70, 102, 107, 0.14);
+  border-radius: 0px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.pattern-summary blockquote {
+  border-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+.pattern-summary dl {
+  margin-bottom: 0;
+}
+.dropdown.open .dropdown-menu {
+  border-top: 1px solid rgba(70, 102, 107, 0.14);
+  border-bottom: 1px solid rgba(70, 102, 107, 0.14);
+}
+@media (min-width: 992px) {
+  .dropdown.open .dropdown-menu {
+    border-top: none;
+    border-bottom: none;
   }
 }
