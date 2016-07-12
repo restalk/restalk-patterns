@@ -6716,6 +6716,8 @@ h2 {
 .crossed {
   text-decoration: line-through;
 }
-.img-medium {
-  max-width: 70%;
+@media (min-width: 992px) {
+  .img-medium {
+    max-width: 70%;
+  }
 }
