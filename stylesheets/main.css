@@ -6744,12 +6744,10 @@ h2 {
   margin-bottom: 0;
 }
 .dropdown.open .dropdown-menu {
-  border-top: 1px solid rgba(70, 102, 107, 0.14);
-  border-bottom: 1px solid rgba(70, 102, 107, 0.14);
+  padding-left: 1em;
 }
 @media (min-width: 992px) {
   .dropdown.open .dropdown-menu {
-    border-top: none;
-    border-bottom: none;
+    padding-left: 0;
   }
 }
