@@ -32,7 +32,7 @@
               <li ><a href="index.html">RESTalk Pattern Language</a></li>
               <li ><a href="rest.html">REST</a></li>
               <li ><a href="dsl.html">RESTalk DSL</a></li>
-              <li ><a href="contribute.html">Contribution</a></li>
+              <li ><a href="contribute.html">Contribute</a></li>
               <li ><a href="imprint.html">Imprint &amp; Contact</a></li>
             </ul>
           </div>
@@ -81,7 +81,7 @@
             To use the <em>POST-PUT Creation</em> conversation pattern, it should be possible to distinguish between the technical creation, i.e. the creation of a new URI, and the execution of the application domain specific creation behavior. The resource creation is split into two steps, the technical creation of its identifier and the actions that are required by the application domain. So the client sends first an empty <code>PUT</code> request, which results in the creation of an empty resource resulting in no side-effect relevant for the application domain. Server's response contains a link to the URI of the created empty resource to which the client can add domain-specific content using a <code>PUT</code> request. The first <code>PUT</code> request will then trigger the consequences of the creation in the domain. Since the <code>PUT</code> is idempotent, resending it multiple times will not have side effects. A visualization of the solution is provided in the following figure:
         </p>
         <p class="text-center">
-        <img src="img/post-put.svg" /> 
+            <img src="img/post-put.svg" title="POST-PUT Creation sequence flow" alternate="The RESTalk diagram for the POST-PUT Creation pattern"/> 
         </p>
     </dd>
     <dt>
