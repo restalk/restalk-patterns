@@ -1457,7 +1457,7 @@ abbr[data-original-title] {
 blockquote {
   padding: 11px 22px;
   margin: 0 0 22px;
-  font-size: 20px;
+  font-size: 16px;
   border-left: 5px solid #eeeeee;
 }
 blockquote p:last-child,
@@ -6717,6 +6717,9 @@ h2 {
   text-decoration: line-through;
 }
 @media (min-width: 992px) {
+  .img-large {
+    max-width: 85%;
+  }
   .img-medium {
     max-width: 70%;
   }
@@ -6750,4 +6753,11 @@ h2 {
   .dropdown.open .dropdown-menu {
     padding-left: 0;
   }
+}
+dt.h4 {
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+dt.h4.without-top-margin {
+  margin-top: 0;
 }
