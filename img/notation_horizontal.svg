@@ -16,7 +16,9 @@
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="notation_horizontal.svg">
   <defs
-     id="defs8138" />
+     id="defs8138" >
+     <style type="text/css">@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700');@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700);</style>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
