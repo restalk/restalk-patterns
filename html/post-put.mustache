@@ -3,7 +3,7 @@
 
 <div class="pattern-summary">
     <dl>
-        <dt>
+        <dt class="h4 without-top-margin">
             Summary:
         </dt>
         <dd>
@@ -12,30 +12,30 @@
     </dl>
 </div>
 <dl>
-    <dt>
+    <dt class="h4">
         Context:
     </dt>
     <dd>
         If a client wants to create a resource whose URI it does not know, it has to use a <code>PUT</code> request. If the response does not reach it, the client does not know if the server did not receive the request, and thus the resource has not been created, or the resource has been created, but the response got lost.
     </dd>
-    <dt>
+    <dt class="h4">
         Problem:
     </dt>
     <dd>
         As all networks are not reliable, a client cannot know the reason for a missing response. This is not a problem if the request was using an idempotent HTTP verb like <code>PUT</code>, <code>PUT</code> or, <code>PUT</code>. However, if a client uses a <code>PUT</code> request because it wants to create a resource whose URI will be determined by the server, how can the creation be repeated without resulting in multiple resources being created?
     </dd>
-    <dt>
+    <dt class="h4">
         Forces:
     </dt>
     <dd>
         The creation of the resource consists of the technical part where a new identifier is chosen and the part where all kinds of consequences and side-effects related to the application domain are executed. While resource identifiers are relatively inexpensive to mint, it often turns out that the application domain logic triggered by resource creation should not be executed multiple times.
     </dd>
-    <dt>
+    <dt class="h4">
         Solution:
     </dt>
     <dd>
         <p>
-            To use the <em>POST-PUT Creation</em> conversation pattern, it should be possible to distinguish between the technical creation, i.e. the creation of a new URI, and the execution of the application domain specific creation behavior. The resource creation is split into two steps, the technical creation of its identifier and the actions that are required by the application domain. So the client sends first an empty <code>PUT</code> request, which results in the creation of an empty resource resulting in no side-effect relevant for the application domain. Server's response contains a link to the URI of the created empty resource to which the client can add domain-specific content using a <code>PUT</code> request. The first <code>PUT</code> request will then trigger the consequences of the creation in the domain. Since the <code>PUT</code> is idempotent, resending it multiple times will not have side effects. A visualization of the solution is provided in the following figure:
+            To use the <em>POST-PUT Creation</em> conversation pattern, it should be possible to distinguish between the technical creation, i.e. the creation of a new URI, and the execution of the application domain specific creation behavior. The resource creation is split into two steps, the technical creation of its identifier and the actions that are required by the application domain. So the client sends first an empty <code>PUT</code> request, which results in the creation of an empty resource resulting in no side-effect relevant for the application domain. Server's response contains a link to the URI of the created empty resource to which the client can add domain-specific content using a <code>PUT</code> request. The first <code>PUT</code> request will then trigger the consequences of the creation in the domain. Since the <code>PUT</code> is idempotent, resending it multiple times will not have side effects. A visualization of the solution is provided in the following <a href="rest.html">RESTalk</a> diagram:
         </p>
         <p class="text-center">
             <a href="img/post-put.svg">
@@ -43,7 +43,7 @@
             </a>
         </p>
     </dd>
-    <dt>
+    <dt class="h4">
         Consequences:
     </dt>
     <dd>
@@ -69,7 +69,7 @@
             </li>
         </ul>
     </dd>
-    <dt>
+    <dt class="h4">
         Variants:
     </dt>
     <dd>
@@ -80,15 +80,15 @@
            This pattern can also be applied when a POST request is not used for creation but for performing any non-idempotent operation.
         </p>
     </dd>
-    <dt>
+    <dt class="h4">
         Known uses:
     </dt>
     <dd>
         <p>
-            For example, the <a href="http://bitworking.org/news/201/RESTify-DayTrader#orders-should-be-reliable">DayTrader REST API</a>.
+            For example, the <a target="_blank" href="http://bitworking.org/news/201/RESTify-DayTrader#orders-should-be-reliable">DayTrader REST API</a>.
         </p>
     </dd>
-    <dt>
+    <dt class="h4">
         Related patterns:
     </dt>
     <dd>

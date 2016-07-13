@@ -27,8 +27,8 @@ var htmlTargetDir = distDir;
 var namesAndTitles = 
 {
   index: 'A Pattern Collection for RESTful Conversations',
-  rest: 'REST',
-  dsl: 'RESTalk DSL',
+  rest: 'REST & RESTalk DSL',
+  references: 'References',
   contribute: 'Contribute',
   imprint: 'Imprint & Contact',
   'post-put': 'Pattern: POST-PUT Creation',

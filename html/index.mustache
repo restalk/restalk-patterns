@@ -1,17 +1,23 @@
-<h1>Patterns for RESTful Conversations</h1>
+<h1>RESTalk Pattern Language</h1>
 
 
-<h2>RESTalk Pattern Language</h2>
+<h2>Patterns for RESTful Conversations</h2>
 <p>
-    Resources exposed as part of RESTful APIs are discovered by clients that interact with them over conversations, composed of sets of basic HTTP interactions, to achieve different goals, such as for example: the (reliable) creation of additional resources, the discovery of related resources, the enumeration of the items found within a collection. Given the goal of each conversation, the designer of the API chooses the corresponding conversation patterns which form the basis for the API design. These patterns will thus help the client developer to understand API's features and to build upon them clients that will perform the complex conversation to achieve their goals.
+    Resources exposed as part of RESTful APIs are discovered by clients that interact with them over <a href="rest.html">conversations</a>, composed of sets of basic HTTP interactions, to achieve different goals, such as for example: the (reliable) creation of additional resources, the discovery of related resources, the enumeration of the items found within a collection. Given the goal of each conversation, the designer of the API chooses the corresponding conversation patterns which form the basis for the API design. These patterns will thus help the client developer to understand API's features and to build upon them clients that will perform the complex conversation to achieve their goals.
 </p>
 
 <h2>What are patterns?</h2>
+<blockquote>
+    <p>
+        Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice. 
+    </p>
+    <footer>Christopher Alexander et al. in <cite title="A Pattern Language: Towns, Buildings, Construction">A Pattern Language: Towns, Buildings, Construction</cite> (1977)</footer>
+</blockquote>
 <p>
-    You can find an explanation what patterns are and how they are described on the <a href="http://europlop.net/content/introduction">web page of the EuroPlop conference</a>.
+    You can find an explanation what patterns are and how they are described on the <a target="_blank" href="http://europlop.net/content/introduction">website of the EuroPlop conference</a>.
 </p>
 
-<h2>Patterns</h2>
+<h2>RESTalk Patterns</h2>
 <p>
     An overview over the patterns of this language and their relationships is provided in the following figure.
 </p> 
@@ -20,41 +26,48 @@
         <img src="img/language_overview.svg" title="Pattern Language Overview" alternate="A figure with all patterns of this language and their categorization as well as their relationships."/>
     </a>
 </p>
+<p> 
+    The patterns are grouped by the problem they are solving into the following groups.
+    The missing patterns will be published soon.
+</p>
+
+<h3>Resource Creation Patterns</h3>
 <p>
-    While HTTP offers the POST and PUT methods for creating resources in a single request-response round, the <strong>Resource Creation Patterns</strong> deal with resource creation under certain constraints or failure scenarios.
+    While HTTP offers the POST and PUT methods for creating resources in a single request-response round, the these patterns deal with resource creation under certain constraints or failure scenarios.
 </p>
 <ul>
-    <li>Create Resource using Collections</li>
+    <li>POST new Collection Item</li>
     <li>POST Once Exactly</li>
     <li><a href="post-put.html">POST-PUT Creation</a></li>
     <li><a href="long-running-operation-polling.html">Long Running Operation with Polling</a></li>
 </ul>
+
+<h3>Resource Discovery Patterns</h3>
 <p>
-    The <a href="rest.html">HATEOAS (<em>Hypermedia as the engine of application state</em>) constraint</a>, promotes the design of APIs featuring a single entry point URI, and the dynamic resource discovery based on hypermedia. However, the entry point URI might not lead directly to the resource needed by the client, due to access rights, or the resource being moved to a different location, or the resource being part of a collection of resources. Therefore, the <strong>Resource Discovery Patterns</strong> help to discover resources in such situations. 
+    The <a href="rest.html">HATEOAS (<em>Hypermedia as the engine of application state</em>) constraint</a>, promotes the design of APIs featuring a single entry point URI, and the dynamic resource discovery based on hypermedia. However, the entry point URI might not lead directly to the resource needed by the client, due to access rights, or the resource being moved to a different location, or the resource being part of a collection of resources. Therefore, the these patterns help to discover resources in such situations. 
 </p>
 <ul>
     <li>Server-side Redirection with Status Codes</li>
     <li>Client-side Navigation following Hyperlinks</li>
-    <li>Incremental Resource Collection Traversal</li>
+    <li>Incremental Collection Traversal</li>
 </ul>
+<h3>Resource Editing Patterns</h3>
 <p>
-    The read-only Web is long gone and editing resources has become a common operation which can be performed using the <strong>Resource Editing Patterns</strong>.  
+    The read-only Web is long gone and editing resources has become a common operation which can be performed using these patterns.  
 </p>
 <ul>
     <li>(Partial) Resource Editing</li>
     <li>Conditional Update for Large Resources</li>
 </ul>
 <p>
-    Depending on the resource's content, some or all of the CRUD (Create, Read, Update, Delete) operations might be available only to a restricted group of clients. Client's access rights can be controlled using the <strong>Resource Protection Patterns</strong>.
+    Depending on the resource's content, some or all of the CRUD (Create, Read, Update, Delete) operations might be available only to a restricted group of clients. Client's access rights can be controlled using these patterns.
 </p>
+<h3>Resource Protection Patterns</h3>
 <ul>
     <li>Basic Resource Authentication</li>
     <li>Cookies-based Authentication</li>
 </ul>
 
-<p>
-    The missing patterns will be published soon.
-</p>
 
 <h2>License</h2>
 <p>

@@ -1,11 +1,13 @@
-<h1>REST & RESTful Conversations</h1>
+<h1>REST & RESTalk DSL</h1>
+
+<h2>REST & RESTful Conversations</h2>
 
 <p>
     Using RESTful web services requires interacting and exchanging multiple messages with them, as part of the conversations. When such interactions comprise sequences of HTTP request-response messages, we call them RESTful conversations. 
 </p>
 
 <p>
-    RESTful conversations are heavily affected by the <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">REST architectural style constraints</a>, i.e., client-server, statelessness, uniform interface, cacheable, layered system, and code on demand. The statelessness and uniform interface constraints particularly influence the client-server communication encapsulated in RESTful conversations.
+    RESTful conversations are heavily affected by the <a target="_blank" href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">REST architectural style constraints</a>, i.e., client-server, statelessness, uniform interface, cacheable, layered system, and code on demand. The statelessness and uniform interface constraints particularly influence the client-server communication encapsulated in RESTful conversations.
 </p>
 <p>
     The statelessness principle requires client’s requests to be self-contained, so that the server does not need to remember previous interactions. This implies that every interaction is always initiated by the client, who sends a new request whenever it is ready to advance in the state of the conversation. The client starts the conversation aiming at a certain goal and it can end it at any time by simply not sending further requests.
@@ -21,3 +23,57 @@
     If the resent request is not idempotent, e.g., a <code>POST</code> request, the API needs to be designed to deal with the consequences of such an action. On the other hand, resources bare no consequences from resending idempotent requests, e.g., <code>GET</code>, <code>PUT</code>, <code>DELETE</code>.
 </p>
 
+<h2>RESTalk – a DSL for RESTful Conversations</h2>
+
+<p>
+    RESTalk is a Domain Specific Modeling Language for visual representation of <a href="rest.html">RESTful conversations</a>. It is implemented as an extension of the <a target="_blank" href="http://blog.maxconsilium.com/2013/09/bpmn-20-models-part-2.html">Business Process Modeling Notation (BPMN) Choreography Diagrams</a> with REST specific details. At its current version RESTalk only supports modelling of one to one RESTful conversations. Multiparty conversations will be supported in the future. 
+</p>
+
+<p>A legend of RESTalk is provided in the following figure:</p>
+
+<p class="text-center">
+    <a href="img/notation_horizontal.svg">
+        <img class="img-large" src="img/notation_horizontal.svg" title="Language elements of RESTalk notation" alternate="The language elements of RESTalk: Request-Response, Alternative Server Decisions, Sequence and Hyperlink Flow, Start and End Event, Response Timeout, as well as Parallel AND, Exclusive XOR, and Inclusive OR Gateway."/>
+    </a>
+</p>
+
+<p>The following figure shows an example of a generic conversation using RESTalk.</p>
+
+<p class="text-center">
+    <a href="img/notation_example.svg">
+        <img class="img-small" src="img/notation_example.svg" title="Example of a RESTalk conversation" alternate="The example conversation shows the different language elements."/>
+    </a>
+</p>
+
+<p>
+    The client starts the conversation <strong>(1)</strong> by sending a request to which the server responds <strong>(2)</strong> with two hyperlinks which can be followed by the client <strong>(3)</strong> and which are related to the requested resource. The client can decide to follow just the first hyperlink or just the second hyperlink or both of them <strong>(4)</strong>. If the server does not respond in time <strong>(6)</strong> to client’s request for the first hyperlink, the client can resend the request <strong>(5)</strong>. The server can respond with one of the two alternatives <strong>(7)</strong> depending on the state of the requested resource. Once the response is received the conversation finishes <strong>(8)</strong>.
+</p>
+
+
+
+<h3>RESTalk optional simplifications</h3>
+
+<p>
+    To provide for the understandability of diagrams represented using RESTalk, the following simplifications and abstractions can be introduced.
+</p>
+
+<ol>
+    <li>
+        Although the client can end the conversation at any time, by simply not sending further requests, we use end events to model only the paths that result in the success or failure of the initial intent of the conversation.
+    </li>
+    <li>
+        We only show the hyperlink flow of the last received response, while in reality the link could have been obtained earlier in the conversation as well.
+    </li>
+    <li>
+        Due to the absence of consequences when resending idempotent requests, we only model the re- sending of non-idempotent requests (<code>POST</code>, <code>PATCH</code>) without emphasizing the fact that the client can eventually give up and stop resending the request.
+    </li>
+    <li>
+        We also refrain from modeling alternative responses with 5xx status (server error) codes since they can occur after any request. 
+    </li>
+</ol>
+
+<h3>Getting started</h3>
+
+<p>
+    As there is currently no editor or other tooling available, you can use this <a href="img/notation_horizontal.svg">SVG file</a> as starting point for modeling your own RESTful conversations.
+</p>
