@@ -90,6 +90,22 @@
     </a>
 </p>
 
+<p>
+    The message content to be included in the <strong>client-server interaction</strong> shall contain, but is not limited to, the following details: HTTP method, URI, response status code and, where applicable, links. 
+</p>
+
+<p>
+    A <strong>start</strong> and an <strong>end event</strong> are used to depict the beginning and the end of the conversation, while the <strong>timer event</strong> is used to model the response timeout due to server’s response taking too long, followed by the client resending the request. The timer can only be used attached to the request band, since it interrupts the normal request-response flow. 
+</p>
+
+<p>
+    The <strong>sequence flow</strong> shows the flow of the conversation, while the <strong>hyperlink flow</strong> models URIs’ discovery nd usage by the client.
+</p>
+
+<p>
+    The <strong>gateways</strong> are used to diverge or converge different plausible conversation paths. They can be of different kind: parallel when concurrent paths are necessary, exclusive when only one of n paths is possible, and inclusive when any combination of the paths can occur. 
+</p>
+
 <p>The following figure shows an example of a generic conversation using RESTalk.</p>
 
 <p class="text-center">
@@ -129,7 +145,7 @@
 <h3>Getting started</h3>
 
 <p>
-    As there is currently no editor or other tooling available, you can use this <a href="img/notation_horizontal.svg">SVG file</a> as starting point for modeling your own RESTful conversations.
+    As there is currently no editor or other tooling available, you can use this <a href="img/notation_horizontal.svg" download>SVG file</a> as starting point for modeling your own RESTful conversations.
 </p>
       </section>
     </div>
