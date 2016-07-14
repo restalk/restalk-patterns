@@ -88,7 +88,7 @@
             To avoid polling, the client could become a server as well if possible, providing a callback link when starting the job, indicating where it wants to be notified when the result is available. Queuing requests, processing them and delivering the corresponding results may be assigned to separate physical servers, so that the polling by a large number of clients can be directed to a dedicated server.
         </p>
         <p>
-           If the first step of this conversations needs to be reliable in case of lost responses, and to avoid creating the same job multiple times, this pattern can be combined with the \POERef{} or the \PostPutRef{} pattern where the job is started with the POST or the PUT respectively.
+           If the first step of this conversations needs to be reliable in case of lost responses, and to avoid creating the same job multiple times, this pattern can be combined with the <em>POST Once Exactly</em> or the <em>POST-PUT Creation</em> pattern where the job is started with the POST or the PUT respectively.
         </p>
     </dd>
     <dt class="h4">
