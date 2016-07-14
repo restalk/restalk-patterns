@@ -6670,7 +6670,8 @@ button.close {
 .content {
   padding-top: 70px;
 }
-img {
+img,
+object {
   max-width: 100%;
 }
 .panel-heading h2 {
