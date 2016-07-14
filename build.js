@@ -31,6 +31,9 @@ var namesAndTitles =
   references: 'References',
   contribute: 'Contribute',
   imprint: 'Imprint & Contact',
+  authors: 'Authors',
+  more: 'More',
+  dsl: 'RESTalk DSL',
   'post-put': 'Pattern: POST-PUT Creation',
   'long-running-operation-polling': 'Pattern: Long Running Operation with Polling',
   '404': 'A Pattern Collection for RESTful Conversations'
