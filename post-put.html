@@ -77,13 +77,13 @@
         Context:
     </dt>
     <dd>
-        If a client wants to create a resource whose URI it does not know, it has to use a <code>PUT</code> request. If the response does not reach it, the client does not know if the server did not receive the request, and thus the resource has not been created, or the resource has been created, but the response got lost.
+        If a client wants to create a resource whose URI it does not know, it has to use a <code>POST</code> request. If the response does not reach it, the client does not know if the server did not receive the request, and thus the resource has not been created, or the resource has been created, but the response got lost.
     </dd>
     <dt class="h4">
         Problem:
     </dt>
     <dd>
-        As all networks are not reliable, a client cannot know the reason for a missing response. This is not a problem if the request was using an idempotent HTTP verb like <code>PUT</code>, <code>PUT</code> or, <code>PUT</code>. However, if a client uses a <code>PUT</code> request because it wants to create a resource whose URI will be determined by the server, how can the creation be repeated without resulting in multiple resources being created?
+        As all networks are not reliable, a client cannot know the reason for a missing response. This is not a problem if the request was using an idempotent HTTP verb like <code>GET</code>, <code>PUT</code> or, <code>DELETE</code>. However, if a client uses a <code>PUT</code> request because it wants to create a resource whose URI will be determined by the server, how can the creation be repeated without resulting in multiple resources being created?
     </dd>
     <dt class="h4">
         Forces:
