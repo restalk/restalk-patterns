@@ -1,66 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" 
-      content="The RESTalk Pattern Language for RESTful conversations and the RESTalk DSL for modeling these conversations.">
-    <title>RESTalk Patterns - Pattern: Long Running Operation with Polling</title>
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Fira+Mono:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <div class="container">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="index.html">RESTalk Pattern Language</a></li>
-              <li class="dropdown">
-                <a href="index.html#patterns" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patterns <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="post-put.html">POST-PUT Creation</a></li>
-                  <li><a href="long-running-operation-polling.html">Long Running Operation with Polling</a></li>
-                </ul>
-              </li>
-              <li><a href="rest.html">REST</a></li>
-              <li><a href="dsl.html">RESTalk DSL</a></li>
-              <li class="dropdown">
-                <a href="more.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="references.html">References</a></li>
-                  <li><a href="authors.html">Authors</a></li>
-                  <li><a href="contribute.html">Contribute</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="imprint.html">Imprint &amp; Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="content">
-      <section class="main container">
-        <h1>Long Running Operation with Polling</h1>
+---
+layout: default
+title: "Pattern: Long Running Operation with Polling"
+---
 
+<h1>Long Running Operation with Polling</h1>
 
 <div class="pattern-summary">
     <dl>
@@ -98,44 +41,41 @@
         <p>
             The long running operation itself is turned into a resource, created using the original request with a response telling the client where to find the results. These will be available once the operation running in the background completes. The client may poll the resource to GET its current progress, and will eventually be redirected to another resource representing the result, once the long running operation has completed. Since the output has its own URI, it becomes possible to GET it multiple times, as long as it has not been deleted. Additionally, the long running operation can be cancelled with a DELETE request, thus implicitly stopping the operation on the server, or deleting its output if it had already completed in the meanwhile. A visualization of the solution is provided in the following <a href="rest.html">RESTalk</a> diagram:
         </p>
-        <p class="text-center">
-            <a href="img/long-running-polling.svg">
-            <object class="img-small" data="img/long-running-polling.svg" title="Long Running Operation with Polling" alternate="The RESTalk diagram for the Long Running Operation with Polling pattern">
-            </object>
-            </a> 
-        </p>
+
+        <div class="img-small text-center">
+            <figure>
+                {% include_relative img/long-running-polling.svg %}
+                <figcaption>RESTalk diagram for the <em>Long Running Operation with Polling</em> pattern</figcaption>
+            </figure>
+        </div>
+
     </dd>
     <dt class="h4">
         Consequences:
     </dt>
     <dd>
         <p>Benefits:</p>
-        <ul class="list-unstyled">
+        <ul class="benefits">
             <li>
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 <em>Scalability:</em> 
                 The client does not need to keep the connection open with the server for the entire duration of the request. This has a positive impact on the number of clients that the server can handle concurrently.
             </li>
             <li>
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 <em>Shared results:</em> 
                  The link to the result can be shared among multiple clients that can retrieve it without needing the server to recompute it again for each client.
             </li>
             <li>
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 <em>Request cancellation:</em> 
                  An explicit mechanism consistent with the REST uniform interface is provided for cancelling requests and thus avoiding to waste server resources to perform computations whose results the client is no longer interested in.
             </li>
         </ul>
         <p>Liabilites:</p>
-        <ul  class="list-unstyled">
+        <ul class="liabilites">
             <li>
-                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                 <em>Polling:</em> 
                 The client needs to implement polling, which if done too frequently, may put an additional burden on the server and consume unnecessary bandwidth. To mitigate this problem, it is possible that the server can provide the client with progress information while it is polling so that the number of GET requests can be reduced. 
             </li>
             <li>
-                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                 <em>Server storage consumption:</em> 
                  Depending on the type and size of the result, storage space will be consumed if clients forget to delete the job results and these are not deleted automatically after a certain period of time. 
             </li>
@@ -170,11 +110,3 @@
     </dd>
 </dl>
 
-
-      </section>
-    </div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>

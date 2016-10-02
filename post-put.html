@@ -1,66 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" 
-      content="The RESTalk Pattern Language for RESTful conversations and the RESTalk DSL for modeling these conversations.">
-    <title>RESTalk Patterns - Pattern: POST-PUT Creation</title>
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Fira+Mono:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <div class="container">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="index.html">RESTalk Pattern Language</a></li>
-              <li class="dropdown">
-                <a href="index.html#patterns" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patterns <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="post-put.html">POST-PUT Creation</a></li>
-                  <li><a href="long-running-operation-polling.html">Long Running Operation with Polling</a></li>
-                </ul>
-              </li>
-              <li><a href="rest.html">REST</a></li>
-              <li><a href="dsl.html">RESTalk DSL</a></li>
-              <li class="dropdown">
-                <a href="more.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="references.html">References</a></li>
-                  <li><a href="authors.html">Authors</a></li>
-                  <li><a href="contribute.html">Contribute</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="imprint.html">Imprint &amp; Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="content">
-      <section class="main container">
-        <h1>POST-PUT Creation</h1>
+---
+layout: default
+title: "Pattern: POST-PUT Creation"
+---
 
+<h1>POST-PUT Creation</h1>
 
 <div class="pattern-summary">
     <dl>
@@ -98,34 +41,32 @@
         <p>
             To use the <em>POST-PUT Creation</em> conversation pattern, it should be possible to distinguish between the technical creation, i.e. the creation of a new URI, and the execution of the application domain specific creation behavior. The resource creation is split into two steps, the technical creation of its identifier and the actions that are required by the application domain. So the client sends first an empty <code>POST</code> request, which results in the creation of an empty resource resulting in no side-effect relevant for the application domain. Server's response contains a link to the URI of the created empty resource to which the client can add domain-specific content using a <code>PUT</code> request. The first <code>PUT</code> request will then trigger the consequences of the creation in the domain. Since the <code>PUT</code> is idempotent, resending it multiple times will not have side effects. A visualization of the solution is provided in the following <a href="rest.html">RESTalk</a> diagram:
         </p>
-        <p class="text-center">
-            <a href="img/post-put.svg">
-                <object class="img-tiny" data="img/post-put.svg" title="POST-PUT Creation sequence flow" alternate="The RESTalk diagram for the POST-PUT Creation pattern"/> 
-                </object>
-            </a>
-        </p>
+
+        <div class="img-tiny text-center">
+            <figure>
+                {% include_relative img/post-put.svg %}
+                <figcaption>RESTalk diagram for the <em>POST-PUT Creation</em> pattern</figcaption>
+            </figure>
+        </div>
     </dd>
     <dt class="h4">
         Consequences:
     </dt>
     <dd>
         <p>Benefits:</p>
-        <ul class="list-unstyled">
+        <ul class="benefits">
             <li>
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 <em>Simplified garbage collection:</em> 
                 The created resources have no content and their creation only has technical side-effects. The resources are not initialized until the <code>PUT</code> request is received, thus the server can be set to destroy the empty resources at certain intervals. 
             </li>
             <li>
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 <em>Idempotent initialization:</em> 
                 After the client receives the resource identifier, the actual initialization of the resource is carried out using an idempotent <code>PUT</code> request.
             </li>
         </ul>
         <p>Liabilites:</p>
-        <ul  class="list-unstyled">
+        <ul  class="liabilites">
             <li>
-                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                 <em>Duplicate empty resources:</em> 
                 This solution does not prevent from duplicate resources being created and thus may consume the set of available resource identifiers.
             </li>
@@ -136,7 +77,7 @@
     </dt>
     <dd>
         <p>
-            To enable the server to identify that the <code>PUT</code> request is used for creation and not for a normal update of the resource an <code>If-None-Match</code> header with a * as value can be added to the <code>PUT</code> request. 
+            To enable the server to identify that the <code>PUT</code> request is used for creation and not for a normal update of the resource an <code>If-None-Match</code> header with a <code>*</code> as value can be added to the <code>PUT</code> request. 
         </p>
         <p>
            This pattern can also be applied when a <code>POST</code> request is not used for creation but for performing any non-idempotent operation.
@@ -162,11 +103,3 @@
     
 </dl>
 
-
-      </section>
-    </div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>

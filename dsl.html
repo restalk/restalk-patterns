@@ -1,65 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" 
-      content="The RESTalk Pattern Language for RESTful conversations and the RESTalk DSL for modeling these conversations.">
-    <title>RESTalk Patterns - RESTalk DSL</title>
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Fira+Mono:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <div class="container">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="index.html">RESTalk Pattern Language</a></li>
-              <li class="dropdown">
-                <a href="index.html#patterns" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patterns <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="post-put.html">POST-PUT Creation</a></li>
-                  <li><a href="long-running-operation-polling.html">Long Running Operation with Polling</a></li>
-                </ul>
-              </li>
-              <li><a href="rest.html">REST</a></li>
-              <li><a href="dsl.html">RESTalk DSL</a></li>
-              <li class="dropdown">
-                <a href="more.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="references.html">References</a></li>
-                  <li><a href="authors.html">Authors</a></li>
-                  <li><a href="contribute.html">Contribute</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="imprint.html">Imprint &amp; Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="content">
-      <section class="main container">
-        <h1>RESTalk – a DSL for RESTful Conversations</h1>
+---
+layout: default
+title: RESTalk DSL
+---
+<h1>RESTalk – a DSL for RESTful Conversations</h1>
 
 <p>
     RESTalk is a Domain Specific Modeling Language for visual representation of <a href="rest.html">RESTful conversations</a>. It is implemented as an extension of the <a target="_blank" href="http://blog.maxconsilium.com/2013/09/bpmn-20-models-part-2.html">Business Process Modeling Notation (BPMN) Choreography Diagrams</a> with REST specific details. At its current version RESTalk only supports modelling of one to one RESTful conversations. Multiparty conversations will be supported in the future. 
@@ -67,12 +10,12 @@
 
 <p>A legend of RESTalk is provided in the following figure:</p>
 
-<p class="text-center">
-    <a href="img/notation_horizontal.svg">
-        <object class="img-large" data="img/notation_horizontal.svg" title="Language elements of RESTalk notation" alternate="The language elements of RESTalk: Request-Response, Alternative Server Decisions, Sequence and Hyperlink Flow, Start and End Event, Response Timeout, as well as Parallel AND, Exclusive XOR, and Inclusive OR Gateway.">
-        </object>
-    </a>
-</p>
+<div class="text-center">
+    <figure>
+        {% include_relative img/notation_horizontal.svg %}
+        <figcaption>Language elements of the RESTalk notation</figcaption>
+    </figure>
+</div>
 
 <p>
     The message content to be included in the <strong>client-server interaction</strong> shall contain, but is not limited to, the following details: HTTP method, URI, response status code and, where applicable, links. 
@@ -92,12 +35,12 @@
 
 <p>The following figure shows an example of a generic conversation using RESTalk.</p>
 
-<p class="text-center">
-    <a href="img/notation_example.svg">
-        <object class="img-small" data="img/notation_example.svg" title="Example of a RESTalk conversation" alternate="The example conversation shows the different language elements.">
-        </object>
-    </a>
-</p>
+<div class="img-small text-center">
+    <figure>
+        {% include_relative img/notation_example.svg %}
+        <figcaption>Example of a RESTalk conversation</figcaption>
+    </figure>
+</div>
 
 <p>
     The client starts the conversation <strong>(1)</strong> by sending a request to which the server responds <strong>(2)</strong> with two hyperlinks which can be followed by the client <strong>(3)</strong> and which are related to the requested resource. The client can decide to follow just the first hyperlink or just the second hyperlink or both of them <strong>(4)</strong>. If the server does not respond in time <strong>(6)</strong> to client’s request for the first hyperlink, the client can resend the request <strong>(5)</strong>. The server can respond with one of the two alternatives <strong>(7)</strong> depending on the state of the requested resource. Once the response is received the conversation finishes <strong>(8)</strong>.
@@ -131,10 +74,3 @@
 <p>
     As there is currently no editor or other tooling available, you can use this <a href="img/notation_horizontal.svg" download>SVG file</a> as starting point for modeling your own RESTful conversations.
 </p>
-      </section>
-    </div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>

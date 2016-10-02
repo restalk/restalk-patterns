@@ -1,0 +1,182 @@
+.content
+{
+  padding-top: 70px; 
+}
+
+img, object {
+  max-width: 100%;
+}
+
+.panel-heading h2 {
+  color: $text-color;
+  margin-top: $line-height-computed;
+}
+
+h1 {
+  margin-bottom: 0.7em;
+}
+
+h2 {
+  margin-top: 1.3em;
+}
+
+.main {
+  margin-bottom: 3em;
+  padding-bottom: 0.5em;
+  background-color: rgba(255,255,255,0.9);
+  padding-left: 2em;
+  padding-right: 2em;
+  @media (min-width: $screen-sm-min) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  @media (min-width: $screen-md-min) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.main a {
+  text-decoration: underline;
+}
+
+
+.main preview a {
+  text-decoration: underline;
+}
+
+.logo {
+  width: 550px;
+}
+
+.navbar > .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar-nav li a {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+
+  @media (min-width: $screen-sm-min) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  @media (min-width: $screen-md-min) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+}
+
+.navbar-right {
+  padding-right: 1em;
+
+  li a {
+    padding-left: 0;
+  }
+}
+
+.crossed {
+  text-decoration: line-through;
+}
+
+.img-tiny {
+  svg {
+    max-width: 60%;    
+  }
+}
+
+@media (min-width: $screen-xs-min) {
+  .img-tiny {
+    svg {
+      max-width: 50%;    
+    }
+  }
+}
+
+
+@media (min-width: $screen-sm-min) {
+  .img-tiny {
+    svg {
+      max-width: 40%;    
+    }
+  }
+}
+
+
+@media (min-width: $screen-md-min) {
+  .img-large {
+    svg {
+      max-width: 85%;    
+    }
+  }
+  .img-medium {
+    svg {
+      max-width: 70%;    
+    }
+  }
+
+  .img-small {
+    svg {
+      max-width: 50%;    
+    }
+  }
+
+  .img-tiny {
+    svg {
+      max-width: 25%;    
+    }
+  }
+}
+
+.pattern-summary {
+  @extend .well;
+  dl {
+    margin-bottom: 0;
+  }
+}
+
+.dropdown.open .dropdown-menu {
+  padding-left: 1em;  
+  @media (min-width: $screen-sm-min) {
+    padding-left: 0;
+  }
+}
+
+dt.h4 {
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+dt.h4.without-top-margin {
+  margin-top: 0;
+}
+
+figure {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.benefits, .liabilites {
+  li {
+    list-style-position: outside;
+    list-style-type: none;
+    padding-left: 0.3em;
+  }
+}
+
+.benefits li {
+  list-style-image: url("/img/plus.svg");
+}
+
+.liabilites li {
+  list-style-image: url("/img/minus.svg");
+}

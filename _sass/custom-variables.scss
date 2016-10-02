@@ -1,0 +1,80 @@
+// adapting some defaults
+
+$grid-gutter-width:         30px !default;
+$container-desktop: (940px + $grid-gutter-width) !default;
+$container-large-desktop: $container-desktop;
+
+$font-size-base: 16px;
+
+$blockquote-font-size: $font-size-base;
+
+$brand-primary: rgba(45,116,127,1);
+
+$highlight-text-color: rgba(45,116,127,0.7);
+
+$primary-dark: #111111;
+$primary-light: #E8E8E8;
+
+$default-bg: $primary-light;
+$default-fg: $primary-dark;
+
+$font-family-sans-serif:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+
+$text-color: #333333;
+
+$dark-text: rgba(45,116,127,1);
+
+$border-radius-base: 0px;
+$headings-color: $brand-primary;
+$headings-line-height: 1.3;
+$headings-font-weight: 400;
+
+$font-size-h1: floor(($font-size-base * 2.5));
+
+$navbar-default-color:             $default-fg;
+$navbar-default-bg:                white;
+$navbar-default-border:            $brand-primary;
+
+// Navbar links
+$navbar-default-link-color:                $default-fg;
+$navbar-default-link-hover-color:          $brand-primary;
+$navbar-default-link-hover-bg:             lighten($navbar-default-bg, 10%);
+$navbar-default-link-active-color:         $default-fg;
+$navbar-default-link-active-bg:            lighten($navbar-default-bg, 20%);
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           lighten($navbar-default-bg, 10%);
+$navbar-default-toggle-icon-bar-bg:        darken($navbar-default-bg, 50%);
+$navbar-default-toggle-border-color:       darken($navbar-default-bg, 40%);
+
+
+$panel-bg:                    #fff;
+$panel-body-padding:          30px;
+$panel-heading-padding:       10px 30px;
+$panel-footer-padding:        $panel-heading-padding;
+$panel-border-radius:         $border-radius-base;
+
+//** Border color for elements within panels
+$panel-inner-border:          #ddd;
+$panel-footer-bg:             #f5f5f5;
+
+$panel-default-text:          $text-color;
+$panel-default-border:        $default-bg;
+$panel-default-heading-bg:    $panel-default-border;
+
+//** Dropdown link text color.
+$dropdown-link-color:            $default-fg;
+//** Hover color for dropdown links.
+$dropdown-link-hover-color:      $highlight-text-color; //$navbar-default-link-hover-color;
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:         $navbar-default-link-hover-bg;
+
+$component-offset-horizontal: 200px;
+
+$code-color: #2C2C2C;
+$code-bg: white;
+
+$well-border: rgba(70, 102, 107, 0.14);
+$well-bg: rgba(70, 102, 107, 0.14);
+
