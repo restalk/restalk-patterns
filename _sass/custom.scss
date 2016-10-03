@@ -193,3 +193,13 @@ figure {
   }
 }
 
+.main svg a {
+  text-decoration: none;
+  text {
+    fill: $brand-primary !important;
+    &:hover {
+      text-decoration: underline;
+      fill: $text-color !important;
+    }
+  }
+}

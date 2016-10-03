@@ -425,6 +425,7 @@
          x="100.57151"
          y="457.32141"
          id="tspan4304">Exactly</tspan></text>
+    <a xlink:href="post-put.html" xlink:title="POST-PUT Creation" xlink:show="replace">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:125%;font-family:'Lato';-inkscape-font-specification:'Lato';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -440,6 +441,7 @@
          x="102.16231"
          y="513.84937"
          id="tspan4306">Creation</tspan></text>
+    </a>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:125%;font-family:'Lato';-inkscape-font-specification:'Lato';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -455,6 +457,7 @@
          x="639.13214"
          y="782.30634"
          id="tspan4316">Editing</tspan></text>
+    <a xlink:href="conditional-update-large-resource.html" xlink:title="Conditional Update for Large Resources" xlink:show="replace">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:125%;font-family:'Lato';-inkscape-font-specification:'Lato';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -470,6 +473,8 @@
          x="152.63962"
          y="781.97034"
          id="tspan4319">Large Resources</tspan></text>
+    </a>
+    <a xlink:href="long-running-operation-polling.html" xlink:title="Long Running Operation with Polling" xlink:show="replace">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:125%;font-family:'Lato';-inkscape-font-specification:'Lato';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -489,6 +494,7 @@
          x="470.73108"
          y="498.39252"
          id="tspan4984">Polling</tspan></text>
+    </a>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:125%;font-family:'Lato';-inkscape-font-specification:'Lato';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
