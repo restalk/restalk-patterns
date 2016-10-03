@@ -57,7 +57,7 @@ The [HATEOAS (*Hypermedia as the engine of application state*) constraint](rest.
 The read-only Web is long gone and editing resources has become a common operation which can be performed using these patterns.  
 
 * (Partial) Resource Editing
-* Conditional Update for Large Resources
+* [Conditional Update for Large Resources](conditional-update-large-resource.html)
 
 Depending on the resource's content, some or all of the CRUD (Create, Read, Update, Delete) operations might be available only to a restricted group of clients. Client's access rights can be controlled using these patterns.
 

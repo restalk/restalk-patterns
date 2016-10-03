@@ -56,5 +56,5 @@ For example, the [DayTrader REST API](http://bitworking.org/news/201/RESTify-Day
 
 ## Related patterns:
 
-If the creation takes a long time the [*Long Running Operation with Polling* pattern](long-running-operation-polling.html) may help.
+If the creation takes a long time, the [*Long Running Operation with Polling* pattern](long-running-operation-polling.html) may help.
 </div>
